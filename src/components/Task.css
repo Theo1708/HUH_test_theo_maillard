@@ -1,0 +1,124 @@
+@import './../styles/colors.css';
+
+.Task-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 46px;
+    border-radius: 30px;
+    padding : 5px 5px 5px 16px;
+    font-size: 16px;
+    border: 0;
+    background-color: var(--WHITE);
+    box-shadow: 1px 0.5px 5px 2px #e9e9e9;
+}
+
+.Task-container button {
+    height: 100%;
+    width: 60px;
+    border: 0;
+    font-size: 12px;
+    background-color: var(--PURPLE_THEME);
+    color: var(--WHITE);
+    border-radius: 40px;
+}
+
+.Task-container button:hover {
+    opacity: 0.7;
+}
+
+.Task-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    overflow-x: hidden;
+}
+
+.Task-checkmarkContainer {
+    height: 19px;
+    min-width: 19px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.Task-checkmarkContainer:hover {
+    opacity: 0.85;
+}
+
+.Task-checkmark {
+    font-size: 20px;
+    overflow: hidden;
+    border-radius: 50%;
+    color: var(--WHITE);
+}
+
+.Task-title {
+    margin-left: 10px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+.Task-title::-webkit-scrollbar {
+    display: none;
+}
+
+.Task-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    min-width: 40px;
+    height: 20px;
+    color: var(--DOTS_ICON);
+    position: relative;
+}
+
+.Task-dotsIcon {
+    font-size: 20px;
+}
+
+.Task-dotsIcon:hover {
+    color: var(--PURPLE_THEME);
+    transform: scale(1.1);
+}
+
+.Task-editContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position : absolute;
+    top : 100%;
+    right : 0;
+    width: 70px;
+    padding : 8px 6px;
+    color: var(--BLACK);
+    background-color: var(--WHITE);
+    z-index: 1;
+    font-size: 13px;
+    border-radius: 8px;
+    box-shadow: 1px 0.5px 5px 2px #efefef;
+}
+
+.Task-editContainer p {
+    border-radius: 7px;
+    padding: 2px 5px;
+}
+
+.Task-editText:hover{
+    background-color: VAR(--PURPLE_THEME);
+    color: var(--WHITE);
+}
+
+.Task-deleteText{
+    color: var(--DELETE);
+}
+
+.Task-deleteText:hover{
+    background-color: VAR(--DELETE);
+    color: var(--WHITE);
+}
