@@ -4,49 +4,23 @@ import { useState } from 'react';
 
 import Task from '../components/Task';
 
-// Cette variable sera remplacée par un state globale par la suite 
-const toDoList : ToDoList = [
-    {
-        id : 1,
-        title : 'title1', 
-        completed : true
-
-    },
-    {
-        id : 2,
-        title : 'title2', 
-        completed : true
-    },
-    {
-        id : 3,
-        title : 'title3', 
-        completed : true
-    },
-    {
-        id : 4,
-        title : 'title4', 
-        completed : false
-
-    },
-    {
-        id : 5,
-        title : 'title5', 
-        completed : false
-    },
-    {
-        id : 6,
-        title : 'title6', 
-        completed : false
-    }
-]
+import { selectToDoList, createTask } from '../store/slices/toDoListSlice';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 
 export default function MainPage() {
+    const dispatch = useAppDispatch();
+    const toDoList = useAppSelector(selectToDoList)
+
     const [newTask, setNewTask] = useState<string>('')
     const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(false)
 
     const createHandler = () => {
-        console.log('create task', newTask)
-        setNewTask('')
+        if (newTask === '') {
+            window.alert(`Please input title before submitting`)
+        } else {
+            setNewTask('')
+            dispatch(createTask(newTask))
+        }
     }
 
     const handleKeyDown = (event : any) => {

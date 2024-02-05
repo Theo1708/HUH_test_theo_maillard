@@ -5,13 +5,18 @@ import { useState } from 'react';
 import { IoIosCheckmark } from "react-icons/io";
 import { BsThreeDots } from "react-icons/bs";
 
-export default function Task (props : {title : string, completed : boolean, id : number})  {
+import { useAppDispatch } from '../store/hooks';
+import { editTask, deleteTask } from '../store/slices/toDoListSlice';
+
+export default function Task (props : {title : string, completed : boolean, id : string})  {
+    const dispatch = useAppDispatch();
+    
     const [areOptionsVisible, setAreOptionsVisible] = useState<boolean>(false)
     const [isEditing, setIsEditing] = useState<boolean>(false)
     const [newTitle, setNewTitle] = useState<string>(props.title)
 
     const deleteHandler = () => {
-        console.log('delete task', props.title)
+        dispatch(deleteTask(props.id))
     }
 
     const editHandler = (title : string, completed : boolean) => {
@@ -23,7 +28,7 @@ export default function Task (props : {title : string, completed : boolean, id :
                 title,
                 completed 
             }
-            console.log('edit task', task)
+            dispatch(editTask(task))
             setIsEditing(false)
         }
     }

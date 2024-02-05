@@ -1,7 +1,11 @@
+interface toDoListState {
+    toDoList : ToDoList
+}
+
 type ToDoList = SingleTask[]
 
 interface SingleTask {
-    id : number,
+    id : string,
     title : string,
     completed : boolean
 }
