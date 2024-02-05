@@ -19,7 +19,8 @@
     "web-vitals": "^2.1.0",
     "react-redux": "^9.0.4",
     "uuid": "^9.0.1",
-    "@reduxjs/toolkit": "^2.0.1"
+    "@reduxjs/toolkit": "^2.0.1",
+    "redux-persist": "^6.0.0"
   },
   "scripts": {
     "start": "react-scripts start"
