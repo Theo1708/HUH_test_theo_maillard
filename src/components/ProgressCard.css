@@ -1,0 +1,36 @@
+@import './../styles/colors.css';
+
+.ProgressCard-container {
+    background-color: var(--PROGRESS_CARD_BACKGROUND);
+    min-height: 110px;
+    height: 110px;
+    width: 100%;
+    padding: 10px 25px 20px;
+    border-radius: 20px;
+}
+
+.ProgressCard-progressBar {
+    width: 100%;
+    height: 5px;
+    background-color: var(--PROGRESS_BAR_BACKGROUND);
+    border-radius: 3px;
+    margin : 12px 0px
+}
+
+.ProgressCard-progress {
+    height: 100%;
+    background-color: var(--WHITE);
+    border-radius: 3px;
+}
+
+.ProgressCard-title {
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--WHITE);
+}
+
+.ProgressCard-subTitle {
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--PROGRESS_CARD_SUBTITLE);
+}
