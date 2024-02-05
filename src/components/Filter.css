@@ -1,0 +1,43 @@
+@import './../styles/colors.css';
+
+.Filter-container {
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    height: 100%;
+    width: 110px;
+    padding: 0px 10px;
+    background-color: var(--WHITE);
+    border-radius: 11px;
+    font-size: 13px;
+    cursor: pointer;
+    position: relative;
+}
+
+.Filter-listContainer {
+    position: absolute;
+    top : 100%;
+    left: 0;
+    width: 100%;
+    padding-top: 8px;
+}
+
+.Filter-list {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 6px;
+    gap : 3px;
+    border-radius: 11px;
+    background-color: var(--WHITE);
+}
+
+.Filter-list span{
+    padding: 5px 8px;
+    border-radius: 8px;
+}
+
+.Filter-list span:hover{
+    background-color: var(--PURPLE_THEME);
+    color: var(--WHITE);
+}

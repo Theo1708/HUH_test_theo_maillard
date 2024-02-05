@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '..';
 
 const initialState : toDoListState = {
-    toDoList: []
+    toDoList: [],
+    filterIndex : 0
 };
 
 export const toDoListSlice = createSlice({
@@ -23,6 +24,9 @@ export const toDoListSlice = createSlice({
         },
         deleteTask (state, {payload}) {
             state.toDoList = state.toDoList.filter((task) => task.id !== payload)
+        },
+        changeFilterIndex (state, {payload}) {
+            state.filterIndex = payload
         }
     }
 });
@@ -30,9 +34,11 @@ export const toDoListSlice = createSlice({
 export const {
     createTask,
     editTask,
-    deleteTask
+    deleteTask,
+    changeFilterIndex
 } = toDoListSlice.actions;
 
 export const selectToDoList = (state: RootState) => state.toDoList.toDoList;
+export const selectFilterIndex = (state: RootState) => state.toDoList.filterIndex;
 
 export default toDoListSlice.reducer;

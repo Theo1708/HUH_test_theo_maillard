@@ -3,13 +3,18 @@ import './MainPage.css';
 import { useState } from 'react';
 
 import Task from '../components/Task';
+import Filter from '../components/Filter';
 
-import { selectToDoList, createTask } from '../store/slices/toDoListSlice';
+import { selectToDoList, createTask, selectFilterIndex } from '../store/slices/toDoListSlice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
+
+import { FILTER_LIST } from '../components/Filter';
 
 export default function MainPage() {
     const dispatch = useAppDispatch();
     const toDoList = useAppSelector(selectToDoList)
+
+    const filterFunction = FILTER_LIST[useAppSelector(selectFilterIndex)]['filter']
 
     const [newTask, setNewTask] = useState<string>('')
     const [isAddButtonVisible, setIsAddButtonVisible] = useState<boolean>(false)
@@ -32,9 +37,12 @@ export default function MainPage() {
     return (
         <div className="MainPage-container">
             <div className="MainPage-card">
-                <h2>To-do List</h2>
+                <div className='MainPage-header'>
+                    <h2>To-do List</h2>
+                    <Filter/>
+                </div>
                 <div className='MainPage-toDoListContainer'>
-                    {toDoList.map((task) => ( 
+                    {toDoList.filter(filterFunction).map((task) => ( 
                         <Task
                             id={task.id}
                             key={task.id}
